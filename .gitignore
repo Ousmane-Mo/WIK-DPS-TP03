@@ -1,0 +1,4 @@
+node_modules
+.env
+.dockerignore
+trivy_0.18.3_Linux-64bit

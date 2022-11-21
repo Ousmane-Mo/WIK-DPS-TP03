@@ -1,0 +1,12 @@
+FROM node
+RUN useradd -ms /bin/bash benzema
+USER benzema
+WORKDIR /WIK-DPS-TP02
+COPY ["package.json", "package-lock.json", "./"]
+RUN ["npm", "install"]
+COPY ["index.ts", "./"]
+COPY ["tsconfig.json", "./"]
+RUN ["npx", "tsc"]
+
+FROM node
+CMD ["npx",  "ts-node",  "index.ts"]
